@@ -1,17 +1,17 @@
-const express = require('express');
-crypto = require('crypto');
-const movies = require('./movies.json');
-const { validateMovie, validatePartialMovie } = require('./schema/movie');
-var cors = require('cors')
+import express, { json } from 'express';
+
+import { validateMovie, validatePartialMovie } from './schema/movie.js';
+import cors from 'cors';
 
 const app = express()
 //Para que mande toda la data parseada con un middleware interno
-app.use(express.json())
+app.use(json())
 //Desactivar la publicidad de express
 app.disable('x-powered-by')
 
-//CORS PRE-flight
-//OPTIONS
+import { createRequire } from 'node:module'
+const require = createRequire(import.meta.url)
+const movies = require('./movies.json')
 
 app.use(cors(
   {
@@ -31,10 +31,6 @@ app.use(cors(
       return callback(new Error('Not allowed by CORS'))
     }
   }))
-
-const ACCEPTED_ORIGINS = [
-  'http://localhost:8080',
-]
 
 // Todos los recursos que sean MOVIES se idenficia con /movies
 app.get('/movies', (req, res) => {
