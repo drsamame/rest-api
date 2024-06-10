@@ -2,7 +2,7 @@
 GET http://localhost:1234/movies
 
 ### Recuperar una película por id
-GET http://localhost:1234/movies/f227d46b-b564-4f48-867c-effe14f39008
+GET http://localhost:1234/movies/47e38317-2468-11ef-8595-00ff31dfd400
 
 ### Recuperar todas las películas por un género
 GET http://localhost:1234/movies?genre=ACTION
@@ -13,8 +13,9 @@ POST http://localhost:1234/movies
 Content-Type: application/json
 
 {
-"title": "The Dark Knight7",
+"title": "The Dark Knight73",
 "year": 1979,
+"rate": 1.3,
 "director": "Christopher Nolan",
 "duration": 152,
 "poster": "https://i.ebayimg.com/images/g/yokAAOSw8w1YARbm/s-l1200.jpg",

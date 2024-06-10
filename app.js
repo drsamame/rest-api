@@ -6,7 +6,6 @@ const app = express()
 app.use(json())
 //Desactivar la publicidad de express
 app.disable('x-powered-by')
-console.log('here',import.meta)
 
 app.use(corstMiddleware())
 
