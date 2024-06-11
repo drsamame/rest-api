@@ -1,6 +1,7 @@
 import express, { json } from 'express'
 import { corstMiddleware } from './middlewares/cors.js'
-import { moviesRouter } from './routes/movies.js'
+import { MovieModel } from "./models/mysql/movie.js";
+import { createMovieRouter } from './routes/movies.js'
 const app = express()
 //Para que mande toda la data parseada con un middleware interno
 app.use(json())
@@ -10,7 +11,7 @@ app.disable('x-powered-by')
 app.use(corstMiddleware())
 
 
-app.use('/movies', moviesRouter)
+app.use('/movies', createMovieRouter({ movieModel: MovieModel }))
 
 const PORT = process.env.PORT || 1234
 
